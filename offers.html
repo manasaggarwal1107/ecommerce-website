@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limited offers </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #ddd;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .back-button {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .offer-timer {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .offer-timer p {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .countdown {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .countdown span {
+            padding: 0 5px;
+        }
+
+        .product {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+
+        .product img {
+            max-width: 300px;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .product-details {
+            max-width: 500px;
+        }
+
+        .product-details h2 {
+            font-size: 32px;
+            margin: 0 0 10px;
+        }
+
+        .product-details p {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .product-details .price {
+            font-size: 28px;
+            color: #e74c3c;
+            margin: 10px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #e74c3c;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .cta-button:hover {
+            background-color: #c0392b;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-top: 3px solid #ddd;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .offers {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .offer {
+            width: 80%;
+            max-width: 1000px;
+            margin: 20px 0;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .offer img {
+            max-width: 300px;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .offer-details {
+            max-width: 500px;
+        }
+
+        .offer-details h2 {
+            font-size: 28px;
+            margin: 0 0 10px;
+        }
+
+        .offer-details p {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .offer-details .price {
+            font-size: 24px;
+            color: #e74c3c;
+            margin: 10px 0;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-form input[type="text"],
+        .modal-form input[type="email"],
+        .modal-form input[type="tel"],
+        .modal-form input[type="password"],
+        .modal-form input[type="number"],
+        .modal-form button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .modal-form button {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .modal-form button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-button">Back to Home</a>
+        <h1>Limited Offer Shoes</h1>
+    </header>
+
+    <div class="container">
+        <!-- Offer Timer -->
+        <section class="offer-timer">
+            <p>Limited Time Offer: This offer expires in:</p>
+            <div id="countdown" class="countdown">
+                <span id="days"></span> days 
+                <span id="hours"></span> hours 
+                <span id="minutes"></span> minutes 
+                <span id="seconds"></span> seconds
+            </div>
+        </section>
+
+        <!-- Offers Section -->
+        <section class="offers">
+            <!-- Offer 1 -->
+            <div class="offer">
+                <img src="https://www.sportswing.in/wp-content/uploads/2023/05/Puma-Power-Rubber-Cricket-Shoes-Red-Yellow-1-1.jpg" alt="Offer 1 Shoes">
+                <div class="offer-details">
+                    <h2>Exclusive Limited Edition Power Shoes</h2>
+                    <p class="price">$75</p>
+                    <p>Get these exclusive shoes at an unbeatable price! Hurry, the offer lasts only for a few more days.</p>
+                    <a href="#" class="cta-button" onclick="openModal('Exclusive Limited Edition Power Shoes', '$75')">Buy Now</a>
+                </div>
+            </div>
+
+            <!-- Offer 2 -->
+            <div class="offer">
+                <img src="https://t3.ftcdn.net/jpg/03/62/91/30/360_F_362913064_EHXLU7kTxz9EDRVzXBamD60NlOAp5vB9.jpg" alt="Offer 2 Shoes">
+                <div class="offer-details">
+                    <h2>10% off offer</h2>
+                    
+                    <p>Additional 10% off on purchase above $300. Grab them before the offer ends!</p>
+                    <a href="#" class="cta-button" onclick="openModal('Exclusive Limited Edition Shoes 2', '$100')">Buy Now</a>
+                </div>
+            </div>
+
+            <!-- Offer 3 -->
+            <div class="offer">
+                <img src="https://img.tatacliq.com/images/i12/437Wx649H/MP000000018540882_437Wx649H_202308020620471.jpeg" alt="Offer 3 Shoes">
+                <div class="offer-details">
+                    <h2>One Time Offer on Sparx Shoes</h2>
+                    <p class="price"><s>$109</s> <b>$100</b></p>
+                    <p>Special offer on these stylish shoes. Act fast to get this deal!</p>
+                    <a href="#" class="cta-button" onclick="openModal('One Time Offer on Sparx Shoes', '$100')">Buy Now</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Shoe Paradise. All rights reserved.</p>
+    </footer>
+
+    <!-- The Modal -->
+    <div id="purchaseModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Purchase Details</h2>
+            <form id="purchaseForm" class="modal-form">
+                <input type="text" id="name" placeholder="Full Name" required>
+                <input type="tel" id="phone" placeholder="Phone Number" required>
+                <input type="email" id="email" placeholder="Email Address" required>
+                <input type="text" id="address" placeholder="Shipping Address" required>
+                <input type="number" id="cardNumber" placeholder="Credit Card Number" required>
+                <input type="text" id="expiryDate" placeholder="Expiry Date (MM/YY)" required>
+                <input type="text" id="cvv" placeholder="CVV" required>
+                <button type="submit">Complete Purchase</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Countdown timer script
+        function startCountdown(endDate) {
+            const countdownElement = document.getElementById('countdown');
+
+            function updateCountdown() {
+                const now = new Date();
+                const timeRemaining = endDate - now;
+
+                if (timeRemaining <= 0) {
+                    countdownElement.innerHTML = "Offer has expired!";
+                    return;
+                }
+
+                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days;
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+                document.getElementById('seconds').textContent = seconds;
+            }
+
+            // Update countdown every second
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+
+        // Set the end date for the countdown (7 days from now)
+        const endDate = new Date();
+        endDate.setDate(endDate.getDate() + 7);
+
+        // Start the countdown
+        startCountdown(endDate);
+
+        // Open the modal with product details
+        function openModal(productName, productPrice) {
+            const modal = document.getElementById('purchaseModal');
+            document.getElementById('purchaseForm').onsubmit = function(event) {
+                event.preventDefault(); // Prevent form submission
+                alert(`Thank you for your purchase!\n\nProduct: ${productName}\nPrice: ${productPrice}\n\nWe will contact you at ${document.getElementById('email').value} to confirm your order.`);
+                closeModal(); // Close the modal after submission
+            };
+            modal.style.display = 'block';
+        }
+
+        // Close the modal
+        function closeModal() {
+            const modal = document.getElementById('purchaseModal');
+            modal.style.display = 'none';
+        }
+
+        // Close the modal if the user clicks outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('purchaseModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

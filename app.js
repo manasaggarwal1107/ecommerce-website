@@ -136,3 +136,15 @@ productButton.addEventListener("click", () => {
 close.addEventListener("click", () => {
   payment.style.display = "none";
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const limitedOfferButton = document.querySelector('.limitedOffer');
+
+  if (limitedOfferButton) {
+      limitedOfferButton.addEventListener('click', function() {
+          window.location.href = 'offers.html';
+      });
+  }
+});
+
+
