@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Limited offers </title>
+    <title>Limited Offers</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -284,9 +284,8 @@
                 <img src="https://t3.ftcdn.net/jpg/03/62/91/30/360_F_362913064_EHXLU7kTxz9EDRVzXBamD60NlOAp5vB9.jpg" alt="Offer 2 Shoes">
                 <div class="offer-details">
                     <h2>10% off offer</h2>
-                    
                     <p>Additional 10% off on purchase above $300. Grab them before the offer ends!</p>
-                    <a href="#" class="cta-button" onclick="openModal('Offer applied', )">Buy Now</a>
+                    <a href="#" class="cta-button" onclick="openModal('Offer applied', '')">Buy Now</a>
                 </div>
             </div>
 
@@ -326,7 +325,7 @@
     </div>
 
     <script>
-        // Countdown timer script
+        // Function to start the countdown
         function startCountdown(endDate) {
             const countdownElement = document.getElementById('countdown');
 
@@ -355,12 +354,26 @@
             setInterval(updateCountdown, 1000);
         }
 
-        // Set the end date for the countdown (7 days from now)
-        const endDate = new Date();
-        endDate.setDate(endDate.getDate() + 7);
+        // Function to initialize the countdown
+        function initializeCountdown() {
+            // Retrieve the end date from localStorage
+            let endDate = localStorage.getItem('countdownEndDate');
 
-        // Start the countdown
-        startCountdown(endDate);
+            if (endDate) {
+                endDate = new Date(endDate);
+            } else {
+                // Set the end date (7 days from now) if not already set
+                endDate = new Date();
+                endDate.setDate(endDate.getDate() + 7);
+                localStorage.setItem('countdownEndDate', endDate);
+            }
+
+            // Start the countdown
+            startCountdown(endDate);
+        }
+
+        // Initialize the countdown when the page loads
+        window.onload = initializeCountdown;
 
         // Open the modal with product details
         function openModal(productName, productPrice) {
