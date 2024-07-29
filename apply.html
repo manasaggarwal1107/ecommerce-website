@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Affiliate Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        form input, form textarea {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form button {
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#company">Company</a>
+        <a href="#contact">Contact</a>
+        <a href="#careers">Careers</a>
+        <a href="#affiliates">Affiliates</a>
+        <a href="#stores">Stores</a>
+    </nav>
+
+    <div class="container">
+        <h1>Affiliate Application</h1>
+        <p>Thank you for your interest in becoming an affiliate with Shoe Paradise! Please fill out the form below to apply for our affiliate program.</p>
+        
+        <form action="/submit-affiliate-application" method="post">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="website">Website or Blog:</label>
+            <input type="text" id="website" name="website">
+
+            <label for="social_media">Social Media Profiles:</label>
+            <input type="text" id="social_media" name="social_media">
+
+            <label for="experience">Briefly describe your experience with affiliate marketing:</label>
+            <textarea id="experience" name="experience" rows="4"></textarea>
+
+            <label for="why">Why do you want to join our affiliate program?</label>
+            <textarea id="why" name="why" rows="4" required></textarea>
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+</body>
+
+</html>

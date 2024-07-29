@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Useful Links</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2 {
+            color: #333;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        section {
+            margin: 40px 0;
+        }
+
+        .faq,
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .faq .question {
+            font-weight: bold;
+            color: #444;
+        }
+
+        .faq .answer {
+            margin-left: 20px;
+            color: #666;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        form input,
+        form textarea {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form button {
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#support">Support</a>
+        <a href="#refund">Refund</a>
+        <a href="#faq">FAQ</a>
+        <a href="#feedback">Feedback</a>
+        <a href="#stories">Stories</a>
+    </nav>
+
+    <div class="container">
+        <section id="support">
+            <h2>Support</h2>
+            <p>Welcome to our Support Center! We are here to assist you with any questions or issues you may have. Our dedicated support team is available to provide guidance and resolve any problems you encounter.</p>
+
+            <div class="section">
+                <h3>Common Issues and Solutions</h3>
+                <ul>
+                    <li><strong>Account Login Issues:</strong> If you’re having trouble logging into your account, make sure you’re using the correct username and password. If you’ve forgotten your password, you can <a href="#">reset it here</a>.</li>
+                    <li><strong>Payment Problems:</strong> Check if your payment method is valid and has sufficient funds. For further assistance, <a href="#">contact our billing support</a>.</li>
+                    <li><strong>Shipping and Delivery:</strong> If you haven’t received your order, please check the tracking information provided. If there are any issues, <a href="#">reach out to our shipping department</a>.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>Contact Information</h3>
+                <p><strong>Email:</strong> For general support, email us at <a href="mailto:manasaggarwal1107@gmail.com">manasaggarwal1107@gmail.com</a>.</p>
+                <p><strong>Phone:</strong> Call us at <a href="tel:01123456786">01123456786</a> for immediate assistance.</p>
+            </div>
+
+            <div class="section">
+                <h3>Contact Form</h3>
+                <form action="/submit-support" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="issue">Issue:</label>
+                    <textarea id="issue" name="issue" rows="4" required></textarea>
+
+                    <button type="submit">Submit Support Request</button>
+                </form>
+            </div>
+
+            <div class="section">
+                <h3>Support Hours</h3>
+                <p>Our support team is available Monday through Friday, from 9:00 AM to 5:00 PM (EST). We are closed on weekends and holidays.</p>
+            </div>
+
+            <div class="section">
+                <h3>Resources and Guides</h3>
+                <p>Download our user guide for detailed information about using our products.</p>
+                <p>Check out our video tutorials for step-by-step instructions.</p>
+            </div>
+        </section>
+
+        <section id="refund">
+            <h2>Refund</h2>
+            <div class="section">
+                <h3>1. Return Eligibility</h3>
+                <ul>
+                    <li>You may return items within [30/60/90] days of receiving your order for a full refund or exchange, provided they meet the following conditions:</li>
+                    <ul>
+                        <li>Items must be in their original condition: unused, unworn, and with all original packaging and tags attached.</li>
+                        <li>Some items are non-returnable or have specific return requirements, such as [personalized items, clearance items, etc.].</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>2. How to Initiate a Return</h3>
+                <ul>
+                    <li>To start a return, please follow these steps:</li>
+                    <ul>
+                        <li><strong>Log In to Your Account:</strong> Access your order history and select the item(s) you wish to return.</li>
+                        <li><strong>Request a Return Authorization:</strong> Submit a return request through our online form or contact our customer service team at [support@example.com] or [phone number].</li>
+                        <li><strong>Print and Attach the Return Label:</strong> Once your return request is approved, we will send you a return label and instructions.</li>
+                        <li><strong>Pack and Ship the Item:</strong> Carefully package the item, attach the return label, and send it to the address provided.</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>3. Refund Processing</h3>
+                <ul>
+                    <li>Refunds will be processed within [7-14] business days after we receive and inspect the returned item. The refund will be issued to the original payment method used for the purchase.</li>
+                    <li>Please note that shipping charges are non-refundable, and you are responsible for return shipping costs unless the return is due to an error on our part.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>4. Exchanges</h3>
+                <ul>
+                    <li>If you wish to exchange an item, please follow the same return process and place a new order for the replacement item.</li>
+                    <li>We cannot guarantee the availability of exchanged items, so we recommend placing a new order as soon as possible.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="faq">
+            <h2>FAQ</h2>
+            <div class="faq">
+                <div class="question">1. What is your return policy?</div>
+                <div class="answer">You can return your order within 30 days for a full refund or exchange.</div>
+            </div>
+            <div class="faq">
+                <div class="question">2. How do I track my order?</div>
+                <div class="answer">You can track your order by logging into your account or using the tracking number provided in your confirmation email.</div>
+            </div>
+            <div class="faq">
+                <div class="question">3. What forms of payment do you accept?</div>
+                <div class="answer">We accept major credit cards, PayPal, and bank transfers.</div>
+            </div>
+            <div class="faq">
+                <div class="question">4. How do I know my size?</div>
+                <div class="answer">Refer to our size chart or contact our customer support for assistance.</div>
+            </div>
+        </section>
+
+        <section id="feedback">
+            <h2>Feedback</h2>
+            <form action="/submit-feedback" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments" rows="4" required></textarea>
+
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </section>
+
+        <section id="stories">
+            <h2>Stories</h2>
+            <div class="story">
+                <h3>Yash's Perfect Fit</h3>
+                <p>"I've always struggled to find the perfect pair of shoes that combine both comfort and style. When I tried on my Weinbrenner shoes, I was amazed at how well they fit. The craftsmanship is impeccable, and they feel like they were made just for me. I’ve never been happier with a shoe purchase!" – Yash L.</p>
+            </div>
+            <div class="story">
+                <h3>Mayank's Adventure Ready</h3>
+                <p>"I bought a pair of Sparx boots for my hiking trips, and they’ve exceeded my expectations. Not only are they durable and rugged, but they also provide excellent support. I've tackled some tough trails, and these boots have been my reliable companion. Highly recommend for any outdoor enthusiast!" – Mayank G.</p>
+            </div>
+            <div class="story">
+                <h3>Deepanshu's Office Comfort</h3>
+                <p>"Finding comfortable shoes for the office was a challenge until I discovered Weinbrenner. These shoes are not only stylish but also incredibly comfortable for long hours of standing and walking. I feel confident and pain-free all day long. Thank you, Weinbrenner, for making my workdays better!" – Deepanshu G.</p>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
